@@ -4,8 +4,6 @@ const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
 
-console.log(`THIS IS TEST: ${process.env.DATABASE}`)
-
 mongoose.connect(process.env.DATABASE, 
 {                                    //This is an object
     useNewUrlParser: true,
