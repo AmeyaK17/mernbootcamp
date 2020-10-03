@@ -44,6 +44,8 @@ var userSchema = new mongoose.Schema({
         type: Array,
         default: [],
     }
+  }, {
+        timestamps: true   // will keep track of exact time at which the entry was created. Cann use this to filter out results for a particular time event
   });
 
 
