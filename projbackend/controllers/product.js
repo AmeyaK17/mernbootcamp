@@ -9,7 +9,7 @@ exports.getProductById = (req, res, next, id) => {
     .exec((err, product) => {
         if(err){
             return res.status(400).json({
-                error: "Product not founf",
+                error: "Product not found",
             })
         }
 
@@ -22,7 +22,7 @@ exports.createProduct = (req, res) => {
     let form = new formidable.IncomingForm();
     form.keepExtensions = true;  //to know the extension of the files, like jpeg or png
 
-    form.parse(req, (err, fields, files) => {  //gives 3 parameters, error, fields, forms
+    form.parse(req, (err, fields, file) => {  //gives 3 parameters, error, fields, forms
         if(err){
             return res.status(400).json({
                 error: "Problem with image"
@@ -43,8 +43,8 @@ exports.createProduct = (req, res) => {
         let product = new Product(fields)
 
         //handle file here
-        if(files.photo){
-            if(files.photo.size > 3000000){ // check if file is greater than 3mb. Approx 2*(1024*1024)
+        if(file.photo){
+            if(file.photo.size > 3000000){ // check if file is greater than 3mb. Approx 2*(1024*1024)
                 return res.status(400).json({
                     error: "File size too big!"
                 })
@@ -53,6 +53,8 @@ exports.createProduct = (req, res) => {
             product.photo.data = fs.readFileSync(file.photo.path); //to find the path of the file
             product.photo.contentType = file.photo.type;
         }
+
+        //console.log(product);
 
         //save to DB
         product.save(err, product => {
