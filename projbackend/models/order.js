@@ -25,6 +25,12 @@ const OrderSchema =  new mongoose.Schema({
 
     address: String, 
 
+    status: {
+        type: String,
+        default: "Recieved",
+        enum: ["Cancelled", "Delivered", "Shipped", "Processing", "Recieved"],  //enum is declared to avoid abiguity. So we restrict the use of words.
+    }, 
+
     updated: Date, 
 
     user: {

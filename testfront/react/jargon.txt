@@ -1,0 +1,14 @@
+Virtual DOMS => The whole site doesn't need to refresh. Only a particular section of it. 
+                Example: Youtube coments. No need to refresh the entire page to load a
+                         single comment. 
+
+Props (Properties) => When we need to pass information from one Component to another Components
+
+States => Stores information about everything. If we need to render something onto the page,
+          we can change it via these States.
+
+Components => - Class based
+              - Function based
+
+Hooks
+
