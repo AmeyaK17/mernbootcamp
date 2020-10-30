@@ -151,7 +151,7 @@ exports.updateProduct = (req, res) => {
 //product listing
 exports.getAllProducts = (req, res) => {
     let limit = req.query.limit ? parseInt(req.query.limit) : 8; //req.query takes input from user. It has "?" in the url. Whenever there is ?, a qury is fired up
-    let sortBy = req.quer.sortBy ? req.quer.sortBy : "_id";
+    let sortBy = req.query.sortBy ? req.quer.sortBy : "_id";
 
     Product.find()
         .select("-photo") // - (minus) sign indicates don't select that

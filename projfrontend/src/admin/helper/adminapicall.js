@@ -46,7 +46,7 @@ export const createProduct = (userId, token, product) => {
 }
 
 //get all products 
-export const getProducts = () => {
+export const getAllProducts = () => {
     return fetch (`${API}/products`, {
         method: "GET",
     })
@@ -57,7 +57,7 @@ export const getProducts = () => {
 }
 
 //delete a product
-export const deleteProduct = (userId, token, productId) => {
+export const deleteProduct = (productId, userId, token) => {
     return fetch (`${API}/product/${productId}/${userId}` , {
         method: "DELETE",
         headers : {
@@ -72,7 +72,7 @@ export const deleteProduct = (userId, token, productId) => {
 }
 
 //get a product
-export const getAProduct = productId => {
+export const getProduct = productId => {
     return fetch(`${API}/product/${productId}`, {
         method: "GET",
     })
