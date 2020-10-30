@@ -57,7 +57,7 @@ exports.createProduct = (req, res) => {
         //console.log(product);
 
         //save to DB
-        product.save(err, product => {
+        product.save((err, product) => {
             if(err){
                 return res.status(400).json({
                     error: "Saving tshirt in DB failed",
